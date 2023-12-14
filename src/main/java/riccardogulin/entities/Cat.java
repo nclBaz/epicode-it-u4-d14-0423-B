@@ -24,4 +24,14 @@ public class Cat extends Animal {
 	public void setMaxJumpHeight(double maxJumpHeight) {
 		this.maxJumpHeight = maxJumpHeight;
 	}
+
+	@Override
+	public String toString() {
+		return "Cat{" +
+				"maxJumpHeight=" + maxJumpHeight +
+				", id=" + id +
+				", name='" + name + '\'' +
+				", age=" + age +
+				"} ";
+	}
 }

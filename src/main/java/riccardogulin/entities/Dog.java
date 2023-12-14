@@ -24,4 +24,14 @@ public class Dog extends Animal {
 	public void setMaxSpeed(double maxSpeed) {
 		this.maxSpeed = maxSpeed;
 	}
+
+	@Override
+	public String toString() {
+		return "Dog{" +
+				"maxSpeed=" + maxSpeed +
+				", id=" + id +
+				", name='" + name + '\'' +
+				", age=" + age +
+				"} ";
+	}
 }

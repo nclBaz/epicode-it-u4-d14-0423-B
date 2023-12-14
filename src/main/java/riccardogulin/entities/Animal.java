@@ -4,7 +4,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "animals")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+// @Inheritance(strategy = InheritanceType.SINGLE_TABLE) --> Ci genererà una singola tabella per tutti gli animali (con tanti valori null però)
+@Inheritance(strategy = InheritanceType.JOINED)
+// --> Ci genererà tre tabelle, una per gli attributi comuni, due per gli attributi specifici di Cat e Dog (però questo può richiedere dei join)
 @DiscriminatorColumn(name = "tipo_animale") // Cambia il nome della colonna discriminante da DTYPE a tipo_animale
 public abstract class Animal {
 	@Id
