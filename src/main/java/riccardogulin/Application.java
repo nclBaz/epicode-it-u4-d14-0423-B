@@ -18,12 +18,12 @@ public class Application {
 
 		Cat felix = new Cat("Felix", 10, 50.5);
 		Dog fido = new Dog("Fido", 15, 200);
-		
+
 		ad.save(felix);
 		ad.save(fido);
-
-/*		System.out.println(ad.findById(5));
-		System.out.println(ad.findById(6));*/
+		
+		System.out.println(ad.findCatById(18));
+		System.out.println(ad.findDogById(19));
 
 	}
 }

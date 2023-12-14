@@ -1,6 +1,8 @@
 package riccardogulin.dao;
 
 import riccardogulin.entities.Animal;
+import riccardogulin.entities.Cat;
+import riccardogulin.entities.Dog;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -14,6 +16,14 @@ public class AnimalsDAO {
 
 	public Animal findById(long id) {
 		return em.find(Animal.class, id);
+	}
+
+	public Cat findCatById(long id) {
+		return em.find(Cat.class, id);
+	}
+
+	public Dog findDogById(long id) {
+		return em.find(Dog.class, id);
 	}
 
 	public void save(Animal a) {
