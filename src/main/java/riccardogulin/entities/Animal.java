@@ -5,10 +5,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "animals")
 // @Inheritance(strategy = InheritanceType.SINGLE_TABLE) --> Ci genererà una singola tabella per tutti gli animali (con tanti valori null però)
-@Inheritance(strategy = InheritanceType.JOINED)
+// @Inheritance(strategy = InheritanceType.JOINED)
 // --> Ci genererà tre tabelle, una per gli attributi comuni, due per gli attributi specifici di Cat e Dog (però questo può richiedere dei join)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+// --> Anche detta table per CONCRETE class, nel senso che verrà creata una tabella per ogni classe concreta (anche il padre)
 @DiscriminatorColumn(name = "tipo_animale") // Cambia il nome della colonna discriminante da DTYPE a tipo_animale
-public abstract class Animal {
+public abstract class Animal { // Se la classe Animal non fosse Abstract, con la strategia TABLE_PER_CLASS avremmo una tabella anche per gli Animal
 	@Id
 	@GeneratedValue
 	protected long id;
