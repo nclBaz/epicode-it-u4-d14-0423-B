@@ -19,11 +19,24 @@ public class Application {
 		Cat felix = new Cat("Felix", 10, 50.5);
 		Dog fido = new Dog("Fido", 15, 200);
 
-		ad.save(felix);
-		ad.save(fido);
-		
-		System.out.println(ad.findCatById(18));
-		System.out.println(ad.findDogById(19));
+		/*ad.save(felix);
+		ad.save(fido);*/
+
+		// *************************************** NAMED QUERIES *********************
+		ad.findByNameStartsWith("f").forEach(System.out::println);
+
+		// *************************************** DYNAMIC QUERIES *********************
+		System.out.println("---------------------- FIND ALL DOGS --------------------");
+		ad.findAllDogs().forEach(System.out::println);
+
+		ad.findAllAnimalsNames().forEach(System.out::println);
+
+		System.out.println("---------------------- UPDATE ANIMALS --------------------");
+		ad.findAnimalsByNameAndUpdateName("Fido", "Rex");
+
+		System.out.println("---------------------- DELETE ANIMALS --------------------");
+		ad.findAnimalsByNameAndDelete("Rex");
+
 
 	}
 }
